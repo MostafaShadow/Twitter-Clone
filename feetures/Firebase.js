@@ -2,12 +2,12 @@ import { initializeApp, getApp, getApps } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 const firebaseConfig = {
-  apiKey: "AIzaSyA3Vq67KW7aQ59tcADw-o1UiaOgT95W9Oc",
-  authDomain: "twiiter-b6c7c.firebaseapp.com",
-  projectId: "twiiter-b6c7c",
-  storageBucket: "twiiter-b6c7c.appspot.com",
-  messagingSenderId: "693641172478",
-  appId: "1:693641172478:web:cbf645fed3ffb6c0611caf",
+  apiKey: "AIzaSyDbOL7z6mT7u64WMB1kgiVl0B3RgXDl3DQ",
+  authDomain: "twitter-c-e04f9.firebaseapp.com",
+  projectId: "twitter-c-e04f9",
+  storageBucket: "twitter-c-e04f9.appspot.com",
+  messagingSenderId: "357679910030",
+  appId: "1:357679910030:web:24af51ae0e124c9efa0ddf"
 };
 
 const app = initializeApp(firebaseConfig);
