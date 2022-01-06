@@ -2,10 +2,15 @@ import Image from "next/image";
 import logo from "../images/twitter.jpg";
 import google from "../images/google.png";
 import { signIn } from "next-auth/react";
+import Head from "next/head";
 
 export const Login = ({ providers }) => {
   return (
     <div className="h-screen w-screen flex flex-col justify-center text-[#ddd] text-center space-y-8">
+      <Head>
+        <title>Twitter | Login </title>
+        <link rel="icon" href="/twitter.png" />
+      </Head>
       <div className="space-y-3">
         <Image
           src={logo}
@@ -40,7 +45,11 @@ export const Login = ({ providers }) => {
 
       <span className="block">
         &copy; By{" "}
-        <a href="https://www.mostafamohamed.ml/" target="_blank" className="text-[#45adf2]">
+        <a
+          href="https://www.mostafamohamed.ml/"
+          target="_blank"
+          className="text-[#45adf2]"
+        >
           Mostafa Mohamed <span className="text-[16px]">&#9829;</span>
         </a>{" "}
         2022

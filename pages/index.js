@@ -15,8 +15,8 @@ export default function Home({ trendingResults, followResults, providers }) {
   return (
     <div className="">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Twitter | Home </title>
+        <link rel="icon" href="/twitter.png" />
       </Head>
       <main className="bg-[#111] min-h-screen max-w-[1500px] mx-auto">
         <Sidebar />
