@@ -5,15 +5,8 @@ import {
   onSnapshot,
   orderBy,
   query,
-  addDoc,
-  serverTimestamp,
 } from "@firebase/firestore";
-import {
-  CalendarIcon,
-  ChartBarIcon,
-  EmojiHappyIcon,
-  XIcon,
-} from "@heroicons/react/outline";
+
 import { getProviders, getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
@@ -27,16 +20,16 @@ import { Post } from "../components/home/Post";
 import { db } from "../feetures/Firebase";
 import { Comment } from "../components/home/Comment";
 import Head from "next/head";
-import { Picker } from "emoji-mart";
 
 function PostPage({ providers }) {
   const { data: session } = useSession();
   const [open, setOpen] = useRecoilState(modalState);
   const [post, setPost] = useState();
   const [allComments, setAllComments] = useState([]);
-
   const router = useRouter();
+  
   const { id } = router.query;
+  if (!session) return <Login providers={providers} />;
 
   // get Posts from data firesore
   useEffect(() => {
@@ -57,10 +50,6 @@ function PostPage({ providers }) {
     return getComments;
   }, [db, id]);
 
-
-
-
-  if (!session) return <Login providers={providers} />;
   return (
     <div>
       <Head>
@@ -96,7 +85,7 @@ function PostPage({ providers }) {
             </div>
           )}
         </div>
-        
+
         {open && <Modal />}
       </main>
     </div>
@@ -105,3 +94,13 @@ function PostPage({ providers }) {
 
 export default PostPage;
 
+export async function getServerSideProps(context) {
+  const providers = await getProviders();
+  const session = await getSession(context);
+  return {
+    props: {
+      providers,
+      session,
+    },
+  };
+}
